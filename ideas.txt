@@ -1,0 +1,3 @@
+hacer el programa para un grupo de trabajo o para que tu jefe te asigne tareas.
+no se puede usar floar, se usan grillas
+Layoutit para hacer la grilla

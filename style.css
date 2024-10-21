@@ -1,0 +1,419 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #27ae60;
+    --background-color: #e6e9ed;
+    --text-color: #333333;
+    --header-color: #2c3e50;
+    --completed-color: #95a5a6;
+    --delete-color: #ff7675;
+    --clear-color: #fab1a0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto;
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-items: stretch;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+#addTask {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+#addTask:hover {
+    opacity: 0.8;
+}
+
+#taskPriority {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+#taskPriority.high {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#taskPriority.normal {
+    background-color: #f39c12;
+    color: white;
+}
+
+#taskPriority.low {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#taskPriority:hover {
+    opacity: 0.8;
+}
+
+#taskStatus {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border: 1.5px solid #ddd;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#taskList li span {
+    flex: 1;
+    margin-right: 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+#taskList li .button-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+#taskList li button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
+}
+
+/* Remove or comment out this rule */
+/* #taskList li button:first-of-type {
+    background-color: inherit;
+} */
+
+/* Add these new styles for the priority buttons in the task list */
+#taskList li .priority-button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: white;
+}
+
+#taskList li .priority-button.high {
+    background-color: #e74c3c;
+}
+
+#taskList li .priority-button.normal {
+    background-color: #f39c12;
+}
+
+#taskList li .priority-button.low {
+    background-color: var(--primary-color);
+}
+
+#taskList li .priority-button:hover {
+    opacity: 0.8;
+}
+#taskList li .toggle-button {
+    background-color: var(--secondary-color); /* Esto es el color verde */
+    margin-right: 0.5rem;
+    min-width: 130px;
+    text-align: center;
+}
+
+#taskList li .toggle-button:hover {
+    opacity: 0.8;
+}
+
+#taskList li button:last-child {
+    background-color: var(--delete-color);
+}
+
+#taskList li button:last-child:hover {
+    opacity: 0.8;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--completed-color);
+}
+
+#clearCompleted {
+    display: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: var(--clear-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#clearCompleted:hover {
+    background-color:var(--delete-color);
+    color: white;
+}
+
+.motivational-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+    font-weight: 600;
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+    font-weight: 600;
+}
+
+.message.error {
+    background-color: var(--delete-color);
+    color: var(--text-color);
+}
+
+.message.success {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+@media (max-width: 600px
+) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    #taskList li {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #taskList li .button-group {
+        margin-top: 0.5rem;
+        justify-content: flex-end;
+    }
+
+    #taskList li button {
+        margin-top: 0.5rem;
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+
+    #taskList li button:last-child {
+        margin-right: 0;
+    }
+
+    .task-input {
+        flex-wrap: nowrap;
+    }
+
+}
+
+.priority-button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    min-width: 39px;
+}
+
+.priority-button.high {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.priority-button.normal {
+    background-color: #f39d12;
+    color: white;
+}
+
+.priority-button.low {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.priority-button:hover {
+    opacity: 0.8;
+}
+
+.clear-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding: 0; /* Mantenemos el padding en 0 */
+}
+
+#clearCompleted, #clearAll {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 1;
+    margin: 0 ; /* Añadimos margen horizontal */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+}
+
+#clearCompleted {
+    background-color: var(--clear-color);
+    border-radius: 4px 0 0 4px;
+}
+
+#clearAll {
+    background-color: var(--delete-color);
+    border-radius: 0 4px 4px 0;
+    color: white;
+}
+
+#clearCompleted:hover, #clearAll:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 740px) {
+    .clear-buttons {
+        flex-direction: column;
+    }
+
+    #clearCompleted, #clearAll {
+        margin: 0.5rem 0;
+        width: 100%;
+        border-radius: 4px;
+    }/*para que los botones se vean bonitos en dispositivos moviles */
+
+    #clearCompleted {
+        background-color: var(--clear-color);
+    }
+
+    #clearAll {
+        background-color: var(--delete-color);
+        color: white;
+    }
+}
