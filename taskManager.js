@@ -90,8 +90,9 @@ function addTask() {
         } else {
             tasks.push({ text: taskText, completed: false, priority: priority });
             taskInput.value = '';
-            resetPriorityButton(); // Agregamos esta línea para resetear la prioridad
-            updateTaskList();
+            resetPriorityButton();
+            updateTaskList();        
+            saveTasks(); // Guardar después de agregar
             showMessage('Tarea agregada con éxito', 'success');
         }
     }
@@ -104,18 +105,21 @@ function toggleTask(index) {
         showMotivationalMessage();
     }
     updateTaskList();
+    saveTasks(); // Guardar después de cambiar el estado
 }
 
 // Función para eliminar una tarea
 function deleteTask(index) {
     tasks.splice(index, 1);
     updateTaskList();
+    saveTasks(); // Guardar después de eliminar
 }
 
 // Nueva función para borrar todas las tareas completadas
 function clearCompletedTasks() {
     tasks = tasks.filter(task => !task.completed);
     updateTaskList();
+    saveTasks(); // Guardar después de limpiar
     showMessage('Tareas completadas han sido borradas', 'success');
 }
 
@@ -127,6 +131,7 @@ function cyclePriority(index) {
     const nextIndex = (currentIndex + 1) % priorities.length;
     tasks[index].priority = priorities[nextIndex];
     updateTaskList();
+    saveTasks(); // Guardar después de cambiar la prioridad
 }
 
 // Agregar evento al botón de agregar tarea
@@ -214,6 +219,7 @@ document.getElementById('clearAll').addEventListener('click', clearAllTasks);
 function clearAllTasks() {
     tasks = [];
     updateTaskList();
+    saveTasks(); // Guardar después de limpiar todo
     showMessage('Todas las tareas han sido borradas', 'success');
 }
 
@@ -221,6 +227,7 @@ function clearAllTasks() {
 function clearCompletedTasks() {
     tasks = tasks.filter(task => !task.completed);
     updateTaskList();
+    saveTasks(); // Guardar después de limpiar
     showMessage('Tareas completadas han sido borradas', 'success');
 }
 
@@ -231,6 +238,7 @@ function changePriority(index) {
     const nextIndex = (currentIndex + 1) % priorities.length;
     tasks[index].priority = priorities[nextIndex];
     updateTaskList();
+    saveTasks(); // Guardar después de cambiar la prioridad
 }
 
 // Add this after updateTaskList is called
@@ -239,4 +247,24 @@ document.getElementById('taskList').addEventListener('click', function(e) {
         const taskIndex = Array.from(this.children).indexOf(e.target.closest('li'));
         changePriority(taskIndex);
     }
+});
+
+// Función para guardar las tareas en localStorage
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Función para cargar las tareas desde localStorage
+function loadTasks() {
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+        tasks = JSON.parse(savedTasks);
+        updateTaskList();
+    }
+}
+
+// Cargar las tareas al iniciar la aplicación
+document.addEventListener('DOMContentLoaded', function() {
+    loadTasks();
+    resetPriorityButton();
 });
