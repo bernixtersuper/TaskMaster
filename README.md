@@ -29,6 +29,4 @@ Este proyecto fue desarrollado utilizando varios conceptos aprendidos en la mate
 
 8. **Modularización del código**: Separación de la lógica de la aplicación (JavaScript) y los estilos (CSS) en archivos diferentes.
 
-9. **Internacionalización**: Uso de mensajes en español, preparando la aplicación para una posible internacionalización futura.
-
-10. **Manejo de estado**: Implementación de un sistema de gestión de estado simple utilizando un array de tareas y funciones para manipularlo.
+9. **Manejo de estado**: Implementación de un sistema de gestión de estado simple utilizando un array de tareas y funciones para manipularlo.
