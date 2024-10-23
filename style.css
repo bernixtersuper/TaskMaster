@@ -44,6 +44,8 @@ h1 {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden; /* Add this line to prevent horizontal overflow */
+    box-sizing: border-box; /* Add this line to include padding in the width calculation */
 }
 
 .task-input {
@@ -333,6 +335,7 @@ h1 {
     .container {
         width: 95%;
         padding: 1rem;
+        margin: 1rem auto; /* Reduce top and bottom margin for smaller screens */
     }
 
     #taskList li {
