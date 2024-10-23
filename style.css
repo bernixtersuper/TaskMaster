@@ -59,6 +59,7 @@ h1 {
     border: 2px solid #ddd;
     border-radius: 4px 0 0 4px;
     font-family: 'Montserrat', sans-serif;
+    width: 75%;
     
 }
 
@@ -75,6 +76,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     white-space: nowrap;
+    width: 160px;
 }
 
 #addTask:hover {
@@ -89,6 +91,7 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: 600;
+    width: 63.11px;
 }
 
 #taskPriority.high {
@@ -293,11 +296,13 @@ h1 {
         flex-direction: column;
     }
     #taskPriority {
+        width: 100%;
         margin-bottom: 0.5rem;
         border-radius: 0 0 4px 4px;
     }
     #addTask {
         border-radius: 4px 4px 0 0;
+        width: 100%;
     }
     #taskInput {
         width: 100%;
@@ -350,7 +355,6 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: 600;
-    margin-right: 0.5rem;
     min-width: 39px;
 }
 
