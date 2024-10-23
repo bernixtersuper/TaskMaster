@@ -292,6 +292,18 @@ h1 {
     10%, 90% { opacity: 1; }
 }
 @media (max-width: 461px) {
+    header {
+        width: 100vw;
+        margin: 0;
+        padding: 1.5rem 0;
+        box-sizing: border-box;
+        left: 0;
+        right: 0;
+        position: relative;
+    }
+    body {
+        overflow-x: hidden;
+    }
     .task-input {
         flex-direction: column;
         width: 100%;
