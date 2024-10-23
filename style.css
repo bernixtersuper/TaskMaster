@@ -288,7 +288,27 @@ h1 {
     0%, 100% { opacity: 0; }
     10%, 90% { opacity: 1; }
 }
+@media (max-width: 461px) {
+    .task-input {
+        flex-direction: column;
+    }
+    #taskPriority {
+        margin-bottom: 0.5rem;
+        border-radius: 0 0 4px 4px;
+    }
+    #addTask {
+        border-radius: 4px 4px 0 0;
+    }
+    #taskInput {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        border-radius: 4px;
+    }
+}
 
+.task-input button {
+    width: 100%;
+}
 @media (max-width: 600px
 ) {
     .container {
