@@ -20,6 +20,52 @@ body {
     min-height: 100vh;
     line-height: 1.6;
 }
+.darkModeToggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(white);
+    margin-right: 0.5rem; 
+}
+
+#darkModeToggle {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: var(--completed-color);
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+#darkModeToggle:checked {
+    background-color: var(--primary-color);
+}
+
+#darkModeToggle::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease;
+}
+
+#darkModeToggle:checked::before {
+    transform: translateX(20px);
+}
 
 header {
     background-color: var(--header-color);
@@ -277,6 +323,7 @@ h1 {
     z-index: 1000;
     animation: fadeInOut 3s ease-in-out;
     font-weight: 600;
+    
 }
 
 .message.error {
@@ -457,4 +504,91 @@ h1 {
         background-color: var(--delete-color);
         color: white;
     }
+}
+body.dark-mode {
+    background-color: #333333;
+    color: #e6e9ed;
+}
+
+body.dark-mode header {
+    background-color: #1a252f;
+}
+
+body.dark-mode .container {
+    background-color: #444444;
+    color: #e6e9ed;
+}
+
+body.dark-mode #taskInput {
+    background-color: #555555;
+    color: #e6e9ed;
+    border: 2px solid #666666;
+}
+
+body.dark-mode #addTask {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+body.dark-mode #taskPriority.high {
+    background-color: #c0392b;
+}
+
+body.dark-mode #taskPriority.normal {
+    background-color: #e67e22;
+}
+
+body.dark-mode #taskPriority.low {
+    background-color: #2980b9;
+}
+
+body.dark-mode #taskList li {
+    background-color: #555555;
+    border: 1.5px solid #666666;
+}
+
+body.dark-mode #taskList li .priority-button.high {
+    background-color: #c0392b;
+}
+
+body.dark-mode #taskList li .priority-button.normal {
+    background-color: #e67e22;
+}
+
+body.dark-mode #taskList li .priority-button.low {
+    background-color: #2980b9;
+}
+
+body.dark-mode #taskList li .toggle-button {
+    background-color: #27ae60;
+}
+
+body.dark-mode #taskList li button:last-child {
+    background-color: #e74c3c;
+}
+
+body.dark-mode #clearCompleted {
+    background-color: #e67e22;
+    color: #ffffff;
+}
+
+body.dark-mode #clearAll {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+body.dark-mode .motivational-message,
+body.dark-mode .message {
+    background-color: #27ae60;
+    color: #ffffff;
+}
+
+body.dark-mode .message.error {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+body.dark-mode .message.success {
+    background-color: #27ae60;
+    color: #ffffff;
 }

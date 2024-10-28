@@ -268,3 +268,27 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTasks();
     resetPriorityButton();
 });
+// Función para cambiar entre modo claro y oscuro
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Cargar el estado del modo oscuro desde localStorage
+function loadDarkMode() {
+    const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+// Agregar evento al checkbox de modo oscuro
+document.getElementById('darkModeToggle').addEventListener('change', toggleDarkMode);
+
+// Cargar el estado del modo oscuro al iniciar la aplicación
+document.addEventListener('DOMContentLoaded', function() {
+    loadDarkMode();
+    loadTasks();
+    resetPriorityButton();
+});
