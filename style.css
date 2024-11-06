@@ -539,7 +539,7 @@ body.dark-mode #taskPriority.normal {
 }
 
 body.dark-mode #taskPriority.low {
-    background-color: #2980b9;
+    background-color: #3498db;
 }
 
 body.dark-mode #taskList li {
